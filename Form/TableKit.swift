@@ -201,9 +201,10 @@ public final class TableKit<Section, Row> {
             return cell
         }
 
-        bag += delegate.didEndDisplayingCell.onValue { cell in
-            cell.releaseBag(forType: Row.self)
-        }
+        // The disposed cells hotfix. Probably, the proper way is to have a symmethric method.
+//        bag += delegate.didEndDisplayingCell.onValue { cell in
+//            cell.releaseBag(forType: Row.self)
+//        }
 
         bag += {
             for cell in view.visibleCells {
